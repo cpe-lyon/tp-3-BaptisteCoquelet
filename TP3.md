@@ -136,3 +136,129 @@ Sudo -K
 
 # Exercice 2. Gestion des permissions
 1)
+```
+mkdir test
+cd test
+nano fichier
+```
+```
+ls -l
+```
+**-rw-rw-r--**
+
+2)
+```
+sudo chmod 000 fichier
+```
+
+```
+sudo nano fichier
+sudo cat fichier
+```
+possiblité en root de modif
+
+3)
+```
+sudo chmod 777 fichier
+```
+echo "echo Hello" > fichier
+
+4)
+./fichier
+sudo ./fichier
+
+Hello
+
+5)
+ sudo chmod 677 ~/test
+
+ls
+./fichier
+Permission denied
+
+sudo chmod 777 ~/test
+
+6)
+touch nouveau
+mkdir sstest
+sudo chmod 555 nouveau
+sudo chmod 555 ~/test
+
+nano nouveau
+permission denied
+
+chmod 777 nouveau
+nano nouveau
+rm nouveau
+fonctionne
+
+7)
+```
+cd ~
+sudo chmod 444 test
+```
+```
+cd test
+nano test/fichier
+```
+permission denied
+```
+ls test
+```
+fonctionne
+
+8)
+```
+sudo chmod 777 test
+cd test
+sudo chmod 444 ~/test
+```
+
+9)
+```
+sudo chmod 777 ~/test
+sudo chmod 710 test/fichier
+```
+10)
+```
+mkdir ~/test/test2
+touch ~/test/fichier2
+sudo umask 077 ~/test/test2
+sudo umask 077 ~/test/fichier2
+```
+
+11)
+```
+mkdir ~/test/test3
+touch ~/test/fichier3
+sudo umask 022 ~/test/test3
+sudo umask 022 ~/test/fichier3
+```
+
+12)
+```
+mkdir ~/test/test4
+touch ~/test/fichier4
+sudo umask 067 ~/test/test4
+sudo umask 067 ~/test/fichier4
+```
+
+13)
+```
+chmod u=rx,g=wx,o=r fic
+chmod 534 fic
+```
+```
+chmod uo+w,g-rx fic
+chmod 650 fic
+```
+```
+chmod 653 fic
+chmod rw-r-x-wx fic
+```
+```
+chmod u+x,g=w,o-r fic
+chmod 524 fic
+```
+
+14)
